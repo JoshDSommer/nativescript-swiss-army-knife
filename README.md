@@ -2,6 +2,18 @@
 
 A repo for all those functions you copy and paste between projects.
 
+#Common Functions
+**`pluckChildViewsFromLayout`** accepts any layout and removes all it's child views and returns them in an array.
+
+
+
+#Android specific functions
+
+
+#iOS specific functions
+
+
+
 ###Plugin Development Work Flow:
 
 * Clone repository to your machine.

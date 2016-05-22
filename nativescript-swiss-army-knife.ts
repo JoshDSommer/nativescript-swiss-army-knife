@@ -2,6 +2,12 @@ import {View, AddChildFromBuilder} from 'ui/core/view';
 import {LayoutBase} from 'ui/layouts/layout-base';
 import {StackLayout} from 'ui/layouts/stack-layout';
 import {Color} from 'color';
+import * as Platform from 'platform';
+
+export interface IScreenHeight {
+	portrait: number;
+	landscape: number;
+}
 
 export class SwissArmyKnife {
 
@@ -23,5 +29,16 @@ export class SwissArmyKnife {
 		});
 		parent.removeChildren();
 		return returnViews;
+	}
+
+	/**
+	 * returns an IScreenHeight ojecjt with the protrait demension and landscape deminsions */
+	public static getScreenHeight(): IScreenHeight {
+		let height1 = Platform.screen.mainScreen.heightDIPs;
+		let height2 = Platform.screen.mainScreen.widthDIPs;
+		return {
+			portrait: height1,
+			landscape: height2
+		};
 	}
 }

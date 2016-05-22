@@ -1,5 +1,5 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
   <StackLayout>
-    <Label id="borderImage" text="Hello World"/>
+    <Label id="info1" text="Hello World"/>
   </StackLayout>
 </Page>

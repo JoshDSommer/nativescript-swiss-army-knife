@@ -13,6 +13,7 @@ A repo for all those functions you copy and paste between projects.
 #iOS specific functions
 
 
+Please feel free to contribute.
 
 ###Plugin Development Work Flow:
 

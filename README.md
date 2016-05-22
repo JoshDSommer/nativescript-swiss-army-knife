@@ -13,14 +13,15 @@ A repo for all those functions you copy and paste between projects.
 #iOS specific functions
 
 
-Please feel free to contribute.
-
 ###Plugin Development Work Flow:
 
 * Clone repository to your machine.
 * Run `npm run setup` to prepare the demo project
 * Build with `npm run build`
 * Run and deploy to your device or emulator with `npm run demo.android` or `npm run demo.ios`
+
+##Contributing guidelines
+[Contributing guidelines](https://github.com/TheOriginalJosh/nativescript-swiss-army-knife/blob/master/CONTRIBUTING.md)
 
 [MIT](/LICENSE)
 

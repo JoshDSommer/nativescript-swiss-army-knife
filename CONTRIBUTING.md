@@ -1,7 +1,7 @@
 #Contributing guidlines
 
 ### this is a living document so I'll be updating it occasionally.
-Please follow these 6 simple rules to make the PR process as smooth as possible.
+Please follow these 7 simple rules to make the PR process as smooth as possible.
 I don't have a ton of free time, and I do this for fun.
 
  1. Always start a new branch of the latest version of master

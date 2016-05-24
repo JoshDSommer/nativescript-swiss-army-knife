@@ -1,6 +1,6 @@
 {
 	"name": "nativescript-swiss-army-knife",
-	"version": "0.0.4",
+	"version": "0.0.6",
 	"description": "Nativescript Swiss Army Knife",
 	"main": "nativescript-swiss-army-knife.js",
 	"nativescript": {
@@ -32,9 +32,10 @@
 		"Android",
 		"iOS",
 		"TypeScript",
-		"swipe slides",
-		"Slides",
-		"Carousel"
+		"joshsommer",
+		"bradmartin",
+		"swiss army",
+		"utilities"
 	],
 	"author": {
 		"name": "Josh Sommer",

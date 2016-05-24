@@ -12,7 +12,7 @@ export class SwissArmyKnife extends SwissArmyKnifeCommon {
 	 * Sets the Android statusbar to translucent
      * Android API >= 19 only
 	 */
-    public static setAndroidStatusBarTranslucent(): void {
+    public static setAndroidStatusBarTranslucentFlag(): void {
         if (app.android && Platform.device.sdkVersion >= '19') {
             let window = app.android.startActivity.getWindow();
             window.addFlags(LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -34,7 +34,7 @@ export class SwissArmyKnife extends SwissArmyKnifeCommon {
     * Sets the Android navigation bar to translucent
     * Android API >= 19 only
     */
-    public static setAndroidNavBarTranslucent(): void {
+    public static setAndroidNavBarTranslucentFlag(): void {
         if (app.android && Platform.device.sdkVersion >= '19') {
             let window = app.android.startActivity.getWindow();
             window.addFlags(LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);

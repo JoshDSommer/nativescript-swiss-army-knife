@@ -7,6 +7,14 @@ A repo for all those functions you copy and paste between projects.
 
 **`getScreenHeight`**  returns an object of type IScreenHeight with the properties `portrait` and `landscape` dimensions.
 
+* ActionBar Utilities
+
+**`actionBarSetTitle`** Programmatically set title on ActionBar
+
+**`actionBarAddButton`** Programmatically add button to the ActionBar
+
+**`actionBarClearButtons`** Programmatically remove all buttons from the ActionBar
+
 #Android specific functions
 **`setAndroidStatusBarTranslucentFlag`** sets the Android statusbar to translucent [Android Documentation](https://developer.android.com/reference/android/view/WindowManager.LayoutParams.html#FLAG_TRANSLUCENT_STATUS)
 
@@ -18,6 +26,9 @@ A repo for all those functions you copy and paste between projects.
 
 #iOS specific functions
 
+**`actionBarHideBackButton`** Programmatically hide the back button from the ActionBar
+
+**`actionBarSetStatusBarStyle`** Programmatically remove all buttons from the ActionBar
 
 ###Plugin Development Work Flow:
 

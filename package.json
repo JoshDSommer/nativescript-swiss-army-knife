@@ -46,6 +46,11 @@
 			"name": "Brad Martin",
 			"email": "bradwaynemartin@gmail.com",
 			"url": "https://github.com/bradmartin"
+		},
+		{
+			"name": "Nathan Walker",
+			"email": "walkerrunpdx@gmail.com",
+			"url": "https://github.com/NathanWalker"
 		}
 	],
 	"bugs": {
@@ -58,7 +63,7 @@
 	"homepage": "https://github.com/TheOriginalJosh/nativescript-swiss-army-knife",
 	"readmeFilename": "README.md",
 	"devDependencies": {
-		"typescript": "^1.8.7"
+		"typescript": "^1.8.10"
 	},
 	"dependencies": {
 		"tns-platform-declarations": "^2.0.0"

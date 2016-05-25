@@ -1,6 +1,8 @@
 import {View, AddChildFromBuilder} from 'ui/core/view';
 import {LayoutBase} from 'ui/layouts/layout-base';
 import {StackLayout} from 'ui/layouts/stack-layout';
+import {topmost} from 'ui/frame';
+import {ActionItem, ActionItems} from 'ui/action-bar';
 import {Color} from 'color';
 import * as Platform from 'platform';
 
@@ -41,4 +43,32 @@ export class SwissArmyKnife {
 			landscape: height2
 		};
 	}
+
+	/** ActionBar Utilities */
+	/**
+	 * Programmatically set title
+	 */
+	public static actionBarSetTitle(title: string) {
+    var actionBar = topmost().currentPage.actionBar;
+    actionBar.title = title;
+  }
+
+	/**
+	 * Programmatically add button to the ActionBar
+	 * NOTE: This MUST be called BEFORE actionBarSetTitle on start
+	 */
+  public static actionBarAddButton(button: ActionItem) {
+    topmost().currentPage.actionBar.actionItems.addItem(button);
+  }
+
+	/**
+	 * Programmatically remove all buttons from the ActionBar
+	 */
+	public static actionBarClearButtons() {
+    var actionBar = topmost().currentPage.actionBar;
+    var actionItems = actionBar.actionItems.getItems();
+    actionItems.forEach((item) => {
+      actionBar.actionItems.removeItem(item);
+    });
+  }
 }

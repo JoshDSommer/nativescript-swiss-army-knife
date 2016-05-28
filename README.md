@@ -5,6 +5,10 @@ A repo for all those functions you copy and paste between projects.
 #Common Functions
 **`disableScrollBounce`** Disables bounce/overscroll for a ScrollView or ListView on Android and iOS.
 
+**`removeHorizontalScrollBars`** Hides horizontal scrollbars for scrollViews or ListViews on Android and iOS
+
+**`removeVerticalScrollBars`** Hides vertical scrollbars for scrollViews or ListViews on Android and iOS
+
 **`pluckChildViewsFromLayout`** accepts any layout and removes all it's child views and returns them in an array.
 
 **`getScreenHeight`**  returns an object of type IScreenHeight with the properties `portrait` and `landscape` dimensions.

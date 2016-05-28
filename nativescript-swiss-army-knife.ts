@@ -49,6 +49,28 @@ export class SwissArmyKnife {
 	}
 
 	/**
+	 *Hides horizontal scrollbars for scrollViews or ListViews on Android and iOS
+	*  */
+	public static removeHorizontalScrollBars(view: ScrollView | ListView): void {
+		if (app.ios) {
+			view.ios.showsHorizontalScrollIndicator = false;
+		} else {
+			view.android.setHorizontalScrollBarEnabled(false);
+		}
+	}
+
+	/**
+	 *Hides vertical scrollbars for scrollViews or ListViews on Android and iOS
+	*  */
+	public static removeVerticalScrollBars(view: ScrollView | ListView): void {
+		if (app.ios) {
+			view.ios.showsVerticalScrollIndicator = false;
+		} else {
+			view.android.setVerticalScrollBarEnabled(false);
+		}
+	}
+
+	/**
 	 * returns an IScreenHeight ojecjt with the protrait demension and landscape deminsions */
 	public static getScreenHeight(): IScreenHeight {
 		let height1 = Platform.screen.mainScreen.heightDIPs;

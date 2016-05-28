@@ -12,6 +12,8 @@ export declare class SwissArmyKnife {
     ios: any;
     static pluckChildViewsFromLayout(parent: LayoutBase): Array<View>;
     static disableScrollBounce(view: ScrollView | ListView): void;
+    static removeHorizontalScrollBars(view: ScrollView | ListView): void;
+    static removeVerticalScrollBars(view: ScrollView | ListView): void;
     static getScreenHeight(): IScreenHeight;
     static actionBarSetTitle(title: string): void;
     static actionBarAddButton(button: ActionItem): void;

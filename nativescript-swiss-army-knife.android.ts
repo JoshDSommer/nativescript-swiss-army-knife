@@ -1,4 +1,4 @@
-import {SwissArmyKnife as SwissArmyKnifeCommon} from './nativescript-swiss-army-knife';
+import {SwissArmyKnife as SwissArmyKnifeCommon} from './nativescript-swiss-army-knife.common';
 import * as app from "application";
 import * as Platform from 'platform';
 

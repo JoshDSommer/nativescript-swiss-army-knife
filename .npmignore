@@ -1,3 +1,7 @@
 demo/
 *.png
 *.log
+hooks
+app
+node_modules
+platforms

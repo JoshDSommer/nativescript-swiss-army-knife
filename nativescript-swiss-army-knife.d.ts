@@ -18,4 +18,7 @@ export declare class SwissArmyKnife {
     static actionBarSetTitle(title: string): void;
     static actionBarAddButton(button: ActionItem): void;
     static actionBarClearButtons(): void;
+    static actionBarHideBackButton(): void;
+    static actionBarSetStatusBarStyle(style: number): void;
+    
 }

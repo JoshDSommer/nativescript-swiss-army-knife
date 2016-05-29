@@ -1,6 +1,6 @@
 {
 	"name": "nativescript-swiss-army-knife",
-	"version": "0.0.8",
+	"version": "0.1.1",
 	"description": "Nativescript Swiss Army Knife",
 	"main": "nativescript-swiss-army-knife.js",
 	"nativescript": {

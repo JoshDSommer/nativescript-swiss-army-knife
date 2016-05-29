@@ -1,4 +1,4 @@
-import {SwissArmyKnife as SwissArmyKnifeCommon} from './nativescript-swiss-army-knife';
+import {SwissArmyKnife as SwissArmyKnifeCommon} from './nativescript-swiss-army-knife.common';
 import {topmost} from 'ui/frame';
 
 export class SwissArmyKnife extends SwissArmyKnifeCommon {

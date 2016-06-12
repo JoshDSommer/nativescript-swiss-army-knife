@@ -43,6 +43,14 @@ A repo for all those functions you copy and paste between projects.
 * Build with `npm run build`
 * Run and deploy to your device or emulator with `npm run demo.android` or `npm run demo.ios`
 
+If you add a new function make sure to add it to `nativescript-swiss-army-knife.d.ts` as well.
+
+### Thanks to these awesome contributors!
+
+[Brad Martin](https://github.com/bradmartin)
+
+[Nathan Walker](https://github.com/NathanWalker)
+
 ##Contributing guidelines
 [Contributing guidelines](https://github.com/TheOriginalJosh/nativescript-swiss-army-knife/blob/master/CONTRIBUTING.md)
 

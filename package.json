@@ -1,6 +1,6 @@
 {
 	"name": "nativescript-swiss-army-knife",
-	"version": "0.1.1",
+	"version": "2.0.0",
 	"description": "Nativescript Swiss Army Knife",
 	"main": "nativescript-swiss-army-knife.js",
 	"nativescript": {
@@ -63,9 +63,7 @@
 	"homepage": "https://github.com/TheOriginalJosh/nativescript-swiss-army-knife",
 	"readmeFilename": "README.md",
 	"devDependencies": {
-		"typescript": "^1.8.10"
-	},
-	"dependencies": {
+		"typescript": "^1.8.10",
 		"tns-platform-declarations": "^2.0.0"
 	}
 }

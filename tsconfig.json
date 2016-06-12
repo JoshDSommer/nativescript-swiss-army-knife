@@ -9,9 +9,7 @@
     },
     "files": [
         "demo/node_modules/tns-core-modules/tns-core-modules.d.ts",
-        "node_modules/tns-platform-declarations/android17.d.ts",
-        "nativescript-swiss-army-knife.ios.ts",
-        "nativescript-swiss-army-knife.android.ts"
+        "node_modules/tns-platform-declarations/android17.d.ts"
     ],
     "compileOnSave": false
 }

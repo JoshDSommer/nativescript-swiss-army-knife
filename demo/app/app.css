@@ -1,24 +1,10 @@
-﻿.title {
-    font-size: 30;
-    horizontal-align: center;
-    margin: 20;
+﻿
+
+Page{
+      background-color: #448AFF;
+
 }
-
-button {
-    font-size: 42;
-    horizontal-align: center;
-}
-
-.message {
-    font-size: 20;
-    color: #284848;
-    horizontal-align: center;
-    margin: 0 20;
-    text-align: center;
-}
-
-
-Image{
-    width:200;
-    height: 200;
+TextView{
+    font-size: 25;
+    color:#fff;
 }

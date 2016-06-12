@@ -20,5 +20,8 @@ export declare class SwissArmyKnife {
     static actionBarClearButtons(): void;
     static actionBarHideBackButton(): void;
     static actionBarSetStatusBarStyle(style: number): void;
-    
+    static setAndroidStatusBarTranslucentFlag(): void;
+    static resetAndroidStatusBarTranslucentFlag(): void;
+    static setAndroidNavBarTranslucentFlag(): void;
+    static resetAndroidNavBarTranslucentFlag(): void;
 }

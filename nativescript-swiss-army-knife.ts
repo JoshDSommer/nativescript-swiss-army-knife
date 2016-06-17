@@ -15,6 +15,7 @@ export interface IScreenHeight {
 	portrait: number;
 	landscape: number;
 	androidStatusBar: number;
+	androidNavBar: number;
 }
 
 export class SwissArmyKnife {
@@ -79,10 +80,12 @@ export class SwissArmyKnife {
 		let height1 = Platform.screen.mainScreen.heightDIPs;
 		let height2 = Platform.screen.mainScreen.widthDIPs;
 		let statusbar = this.getStatusBarHeight();
+		let navbar = this.getNavBarHeight();
 		return {
 			portrait: height1,
 			landscape: height2,
 			androidStatusBar: statusbar,
+			androidNavBar: navbar,
 		};
 	}
 
@@ -98,6 +101,20 @@ export class SwissArmyKnife {
 			return 0;
 		}
 	}
+
+	private static getNavBarHeight(): number {
+		if (app.android) {
+			let result = 0;
+			let resourceId = app.android.currentContext.getResources().getIdentifier('navigation_bar_height', 'dimen', 'android');
+			if (resourceId > 0) {
+				result = app.android.currentContext.getResources().getDimensionPixelSize(resourceId);
+			}
+			return result;
+		} else {
+			return 0;
+		}
+	}
+
 
 	/** ActionBar Utilities */
 	/**
@@ -136,6 +153,8 @@ export class SwissArmyKnife {
 			let window = app.android.startActivity.getWindow();
 			// check for status bar
 			window.addFlags(LayoutParams.FLAG_TRANSLUCENT_STATUS);
+			window.addFlags(LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+			window.setStatusBarColor(new Color('pink'));
         }
     }
 

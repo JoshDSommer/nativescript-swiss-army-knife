@@ -3,6 +3,8 @@ import { LayoutBase } from 'ui/layouts/layout-base';
 import { ScrollView } from 'ui/scroll-view';
 import { ListView } from 'ui/list-view';
 import { ActionItem } from 'ui/action-bar';
+import {Color} from 'color';
+
 export interface IScreenHeight {
     portrait: number;
     landscape: number;
@@ -24,4 +26,6 @@ export declare class SwissArmyKnife {
     static resetAndroidStatusBarTranslucentFlag(): void;
     static setAndroidNavBarTranslucentFlag(): void;
     static resetAndroidNavBarTranslucentFlag(): void;
+    static setAndroidStatusBarColor(color: string | Color): void;
+    static setAndroidNavBarColor(color: string | Color): void;
 }

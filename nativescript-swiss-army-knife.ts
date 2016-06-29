@@ -153,11 +153,61 @@ export class SwissArmyKnife {
 			let window = app.android.startActivity.getWindow();
 			// check for status bar
 			window.addFlags(LayoutParams.FLAG_TRANSLUCENT_STATUS);
-			window.addFlags(LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-			window.setStatusBarColor(new Color('pink'));
         }
     }
 
+	/**
+     * Sets the Android statusbar color, accepts either a string color or a Color object
+     * Android API >= 21 only
+     */
+	public static setAndroidStatusBarColor(color: string | Color): void {
+		if (app.android && Platform.device.sdkVersion >= '21') {
+			let barColor = this.getBarColor(color);
+			let LayoutParams = <any>android.view.WindowManager.LayoutParams;
+			let window: any;
+			if (app.android.foregroundActivity != null) {
+				window = app.android.foregroundActivity.getWindow();
+			} else {
+				window = app.android.startActivity.getWindow();
+			}
+
+			window.addFlags(LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+			window.setStatusBarColor(barColor.android);
+		}
+	}
+
+	/**
+		 * Sets the Android NavigationBar color, accepts either a string color or a Color object
+		 * Android API >= 21 only
+		 */
+	public static setAndroidNavBarColor(color: string | Color): void {
+		if (app.android && Platform.device.sdkVersion >= '21') {
+			let barColor = this.getBarColor(color);
+			let LayoutParams = <any>android.view.WindowManager.LayoutParams;
+			let window: any;
+			if (app.android.foregroundActivity != null) {
+				window = app.android.foregroundActivity.getWindow();
+			} else {
+				window = app.android.startActivity.getWindow();
+			}
+
+			window.addFlags(LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+			window.setNavigationBarColor(barColor.android);
+		}
+	}
+
+	private static getBarColor(color: string | Color): Color {
+		let barColor: Color;
+
+
+
+		if ((color instanceof Color) === false) {
+			barColor = new Color(<string>color);
+		} else {
+			barColor = <Color>color;
+		}
+		return barColor;
+	}
 
     /**
      * Clears the Android Translucent StatusBar flag

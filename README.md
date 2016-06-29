@@ -30,6 +30,10 @@ A repo for all those functions you copy and paste between projects.
 
 **`resetAndroidNavBarTranslucentFlag`** resets the Translucent Android navigation bar flag.
 
+**`setAndroidStatusBarColor`** Sets the Android navigation bar color, accepts either a string color or a Color object
+
+**`setAndroidNavBarColor`** Sets the Android status bar color, accepts either a string color or a Color object
+
 #iOS specific functions
 
 **`actionBarHideBackButton`** Programmatically hide the back button from the ActionBar

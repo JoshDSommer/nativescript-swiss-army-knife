@@ -95,6 +95,7 @@ export class SwissArmyKnife {
 			let resourceId = app.android.currentContext.getResources().getIdentifier('status_bar_height', 'dimen', 'android');
 			if (resourceId > 0) {
 				result = app.android.currentContext.getResources().getDimensionPixelSize(resourceId);
+				result = result / app.android.currentContext.getResources().getDisplayMetrics().density;
 			}
 			return result;
 		} else {

@@ -1,5 +1,9 @@
 # nativescript-swiss-army-knife
 
+[![npm](https://img.shields.io/npm/v/nativescript-swiss-army-knife.svg)](https://www.npmjs.com/package/nativescript-swiss-army-knife)
+[![npm](https://img.shields.io/npm/dt/nativescript-swiss-army-knife.svg?label=npm%20downloads)](https://www.npmjs.com/package/nativescript-swiss-army-knife)
+
+
 A repo for all those functions you copy and paste between projects.
 
 #Common Functions

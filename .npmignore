@@ -5,3 +5,9 @@ hooks
 app
 node_modules
 platforms
+app/
+.vscode/
+*.ts
+!nativescript-swiss-army-knife.d.ts
+tsconfig.json
+README.md

@@ -6,7 +6,7 @@
 
 A repo for all those functions you copy and paste between projects.
 
-#Common Functions
+# Common Functions
 **`disableScrollBounce`** Disables bounce/overscroll for a ScrollView or ListView on Android and iOS.
 
 **`removeHorizontalScrollBars`** Hides horizontal scrollbars for scrollViews or ListViews on Android and iOS
@@ -25,7 +25,7 @@ A repo for all those functions you copy and paste between projects.
 
 **`actionBarClearButtons`** Programmatically remove all buttons from the ActionBar
 
-#Android specific functions
+# Android specific functions
 **`setAndroidStatusBarTranslucentFlag`** sets the Android statusbar to translucent [Android Documentation](https://developer.android.com/reference/android/view/WindowManager.LayoutParams.html#FLAG_TRANSLUCENT_STATUS)
 
 **`resetAndroidStatusBarTranslucentFlag`** resets the Translucent Android statusbar flag.
@@ -38,13 +38,13 @@ A repo for all those functions you copy and paste between projects.
 
 **`setAndroidNavBarColor`** Sets the Android status bar color, accepts either a string color or a Color object
 
-#iOS specific functions
+# iOS specific functions
 
 **`actionBarHideBackButton`** Programmatically hide the back button from the ActionBar
 
 **`actionBarSetStatusBarStyle`** Programmatically remove all buttons from the ActionBar
 
-###Plugin Development Work Flow:
+### Plugin Development Work Flow:
 
 * Clone repository to your machine.
 * Run `npm run setup` to prepare the demo project
@@ -59,7 +59,7 @@ If you add a new function make sure to add it to `nativescript-swiss-army-knife.
 
 [Nathan Walker](https://github.com/NathanWalker)
 
-##Contributing guidelines
+## Contributing guidelines
 [Contributing guidelines](https://github.com/TheOriginalJosh/nativescript-swiss-army-knife/blob/master/CONTRIBUTING.md)
 
 [MIT](/LICENSE)

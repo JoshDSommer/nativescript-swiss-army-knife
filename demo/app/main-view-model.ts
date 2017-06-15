@@ -1,4 +1,6 @@
 import { Observable } from "tns-core-modules/data/observable";
+import { topmost } from "ui/frame";
+import { ScrollView } from "ui/scroll-view";
 import { SwissArmyKnife, IScreenHeight } from "nativescript-swiss-army-knife";
 
 export class HelloWorldModel extends Observable {
@@ -28,6 +30,11 @@ export class HelloWorldModel extends Observable {
     SwissArmyKnife.actionBarSetTitle("New Title");
     this._counter--;
     this.updateMessage();
+  }
+
+  public removeScrollVerticalBars(args) {
+    const scrollV = topmost().getViewById("scrollV") as ScrollView;
+    SwissArmyKnife.removeVerticalScrollBars(scrollV);
   }
 
   private updateMessage() {

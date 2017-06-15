@@ -1,4 +1,5 @@
 import { Observable } from "tns-core-modules/data/observable";
+import { SwissArmyKnife, IScreenHeight } from "nativescript-swiss-army-knife";
 
 export class HelloWorldModel extends Observable {
   private _counter: number;
@@ -24,6 +25,7 @@ export class HelloWorldModel extends Observable {
   }
 
   public onTap() {
+    SwissArmyKnife.actionBarSetTitle("New Title");
     this._counter--;
     this.updateMessage();
   }

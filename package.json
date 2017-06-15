@@ -1,16 +1,13 @@
 {
 	"name": "nativescript-swiss-army-knife",
-	"version": "1.0.71",
+	"version": "3.0.0",
 	"description": "Nativescript Swiss Army Knife",
 	"main": "nativescript-swiss-army-knife.js",
 	"typings": "nativescript-swiss-army-knife.d.ts",
 	"nativescript": {
 		"platforms": {
-			"android": "2.0.0",
-			"ios": "2.0.0"
-		},
-		"tns-ios": {
-			"version": "2.0.0"
+			"android": "3.0.0",
+			"ios": "3.0.0"
 		}
 	},
 	"scripts": {
@@ -64,7 +61,8 @@
 	"homepage": "https://github.com/TheOriginalJosh/nativescript-swiss-army-knife",
 	"readmeFilename": "README.md",
 	"devDependencies": {
-		"typescript": "^1.8.10",
-		"tns-platform-declarations": "^2.0.0"
+		"tns-core-modules": "^3.0.0",
+		"typescript": "^2.2.2",
+		"tns-platform-declarations": "^3.0.0"
 	}
 }

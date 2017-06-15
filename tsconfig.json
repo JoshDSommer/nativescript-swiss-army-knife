@@ -1,16 +1,30 @@
 {
     "compilerOptions": {
-        "target": "es5",
         "module": "commonjs",
+        "target": "es5",
+        "noImplicitAny": false,
         "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": false,
+        "declaration": false,
+        "noLib": false,
+        "noEmitHelpers": true,
         "experimentalDecorators": true,
-        "sourceMap": true,
-        "declaration": true
+        "lib": [
+            "es6",
+            "dom"
+        ],
+        "baseUrl": ".",
+        "paths": {
+            "*": [
+                "./node_modules/tns-core-modules/*",
+                "./node_modules/*"
+            ]
+        }
     },
-    "files": [
-        "nativescript-swiss-army-knife.ts",
-        "demo/node_modules/tns-core-modules/tns-core-modules.d.ts",
-        "node_modules/tns-platform-declarations/android17.d.ts"
-    ],
-    "compileOnSave": false
+    "exclude": [
+        "node_modules",
+        "platforms",
+        "demo/node_modules"
+    ]
 }

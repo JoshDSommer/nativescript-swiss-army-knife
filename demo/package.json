@@ -13,7 +13,7 @@
     }
   },
   "dependencies": {
-    "nativescript-swiss-army-knife": "file:///Users/branzov/Git/fork-nativescript-swiss-army-knife",
+    "nativescript-swiss-army-knife": "file:..",
     "nativescript-theme-core": "~1.0.2",
     "tns-core-modules": "^3.0.0"
   },

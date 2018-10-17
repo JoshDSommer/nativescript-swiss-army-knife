@@ -1,9 +1,9 @@
-import { View } from "ui/core/view";
-import { LayoutBase } from "ui/layouts/layout-base";
-import { ScrollView } from "ui/scroll-view";
-import { ListView } from "ui/list-view";
-import { ActionItem } from "ui/action-bar";
-import { Color } from "color";
+import { View } from "tns-core-modules/ui/core/view";
+import { LayoutBase } from "tns-core-modules/ui/layouts/layout-base";
+import { ScrollView } from "tns-core-modules/ui/scroll-view";
+import { ListView } from "tns-core-modules/ui/list-view";
+import { ActionItem } from "tns-core-modules/ui/action-bar";
+import { Color } from "tns-core-modules/color";
 export interface IScreenHeight {
   portrait: number;
   landscape: number;

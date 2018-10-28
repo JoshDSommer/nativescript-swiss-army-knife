@@ -12,12 +12,13 @@
   },
   "scripts": {
     "build": "tsc",
+    "tslint": "tslint \"**/*.ts\" --config tslint.json --exclude \"**/node_modules/**\"",
     "demo.ios": "npm run preparedemo && cd demo && tns emulate ios",
     "demo.android": "npm run preparedemo && cd demo && tns run android",
     "preparedemo": "npm run build && cd demo && tns plugin remove nativescript-swiss-army-knife && tns plugin add .. && tns install",
     "setup": "npm install && cd demo && npm install && cd .. && npm run build && cd demo && tns plugin add .. && cd ..",
-    "livesync.ios": "npm run preparedemo && cd demo && tns livesync ios --watch",
-    "livesync.android": "npm run preparedemo && cd demo && tns livesync android --watch",
+    "livesync.ios": "npm run preparedemo && cd demo && tns run ios",
+    "livesync.android": "npm run preparedemo && cd demo && tns run android",
     "ios": "xcproj --project platforms/ios/YourApp.xcodeproj touch; xcproj --project platforms/ios/Pods/Pods.xcodeproj touch; tns livesync ios --emulator --watch",
     "precommit": "lint-staged"
   },
@@ -68,11 +69,12 @@
   "homepage": "https://github.com/TheOriginalJosh/nativescript-swiss-army-knife",
   "readmeFilename": "README.md",
   "devDependencies": {
-    "husky": "^0.13.4",
-    "lint-staged": "^3.6.1",
+    "husky": "^1.1.2",
+    "lint-staged": "^7.3.0",
     "prettier": "^1.4.4",
-    "tns-core-modules": "^3.0.0",
-    "tns-platform-declarations": "^3.0.0",
-    "typescript": "^2.2.2"
+    "tns-core-modules": "^4.2.1",
+    "tns-platform-declarations": "^4.2.1",
+    "tslint": "^5.11.0",
+    "typescript": "^2.8.2"
   }
 }

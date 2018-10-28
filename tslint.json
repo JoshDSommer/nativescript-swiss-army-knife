@@ -1,14 +1,14 @@
 {
 	"rules": {
 		"class-name": true,
+		"prefer-const": true,
 		"comment-format": [
 			true,
 			"check-space"
 		],
 		"indent": [
 			true,
-			"tabs",
-			"spaces"
+			"tabs"
 		],
 		"no-duplicate-variable": true,
 		"no-eval": true,
@@ -25,6 +25,7 @@
 			"double"
 		],
 		"semicolon": true,
+		"member-ordering": true,
 		"triple-equals": [
 			true,
 			"allow-null-check"

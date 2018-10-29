@@ -1,0 +1,79 @@
+{
+	"name": "nativescript-swiss-army-knife",
+	"version": "3.1.0",
+	"description": "Nativescript Swiss Army Knife",
+	"main": "nativescript-swiss-army-knife",
+	"typings": "nativescript-swiss-army-knife.d.ts",
+	"nativescript": {
+		"platforms": {
+			"android": "3.0.0",
+			"ios": "3.0.0"
+		}
+	},
+	"scripts": {
+		"build": "tsc",
+		"tslint": "tslint \"**/*.ts\" --config tslint.json --exclude \"**/node_modules/**\"",
+		"demo.ios": "npm run preparedemo && cd ../demo && tns run ios",
+		"demo.android": "npm run preparedemo && cd ../demo && tns run android",
+		"preparedemo": "npm run build && cd ../demo && tns plugin remove nativescript-swiss-army-knife && tns plugin add ../src && tns install",
+		"setup": "npm install && cd ../demo && npm install && cd ../src && npm run build && cd ../demo && tns plugin add ../src && cd ../src",
+
+		"ios": "xcproj --project platforms/ios/YourApp.xcodeproj touch; xcproj --project platforms/ios/Pods/Pods.xcodeproj touch; tns livesync ios --emulator --watch",
+		"precommit": "lint-staged"
+	},
+	"lint-staged": {
+		"*.ts": [
+			"prettier --write",
+			"git add"
+		]
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/TheOriginalJosh/nativescript-swiss-army-knife.git"
+	},
+	"keywords": [
+		"NativeScript",
+		"JavaScript",
+		"Android",
+		"iOS",
+		"TypeScript",
+		"joshsommer",
+		"bradmartin",
+		"swiss army",
+		"utilities"
+	],
+	"author": {
+		"name": "Josh Sommer",
+		"email": "joshdsommer@gmail.com"
+	},
+	"contributors": [
+		{
+			"name": "Brad Martin",
+			"email": "bradwaynemartin@gmail.com",
+			"url": "https://github.com/bradmartin"
+		},
+		{
+			"name": "Nathan Walker",
+			"email": "walkerrunpdx@gmail.com",
+			"url": "https://github.com/NathanWalker"
+		}
+	],
+	"bugs": {
+		"url": "https://github.com/TheOriginalJosh/nativescript-swiss-army-knife/issues"
+	},
+	"license": {
+		"type": "MIT",
+		"url": "https://github.com/TheOriginalJosh/nativescript-swiss-army-knife/blob/master/LICENSE"
+	},
+	"homepage": "https://github.com/TheOriginalJosh/nativescript-swiss-army-knife",
+	"readmeFilename": "README.md",
+	"devDependencies": {
+		"husky": "^1.1.2",
+		"lint-staged": "^7.3.0",
+		"prettier": "^1.4.4",
+		"tns-core-modules": "^4.2.1",
+		"tns-platform-declarations": "^4.2.1",
+		"tslint": "^5.11.0",
+		"typescript": "^2.8.2"
+	}
+}

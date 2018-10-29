@@ -19,11 +19,6 @@ export interface IScreenHeight {
 }
 
 export class SwissArmyKnife {
-	private static _androidContext =
-		app.android.currentContext || app.android.context;
-	private static _androidActivity =
-		app.android.startActivity || app.android.foregroundActivity;
-
 	get android(): any {
 		return;
 	}
@@ -302,5 +297,13 @@ export class SwissArmyKnife {
 		} else {
 			return 0;
 		}
+	}
+
+	private static get _androidContext() {
+		return app.android.context || app.android.currentContext;
+	}
+
+	private static get _androidActivity() {
+		return app.android.foregroundActivity || app.android.startActivity;
 	}
 }

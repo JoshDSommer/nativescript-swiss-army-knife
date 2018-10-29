@@ -1,35 +1,23 @@
+import { SwissArmyKnife } from "nativescript-swiss-army-knife";
 import { Observable } from "tns-core-modules/data/observable";
-import { topmost } from "ui/frame";
-import { ScrollView } from "ui/scroll-view";
-import { SwissArmyKnife, IScreenHeight } from "nativescript-swiss-army-knife";
+import { isAndroid, isIOS } from "tns-core-modules/platform";
+import { topmost } from "tns-core-modules/ui/frame";
+import { ScrollView } from "tns-core-modules/ui/scroll-view";
 
 export class HelloWorldModel extends Observable {
-	private _counter: number;
-	private _message: string;
+	private _colors = ["red", "blue", "green", "yellow", "orange"];
+	private _numbers = [0, 1];
+	private _strings = ["Wow 😏", "Boom 💥", "Spooky 👻", "🧟‍♂️ Dead"];
 
 	constructor() {
 		super();
-
-		// Initialize default values.
-		this._counter = 42;
-		this.updateMessage();
 	}
 
-	get message(): string {
-		return this._message;
-	}
-
-	set message(value: string) {
-		if (this._message !== value) {
-			this._message = value;
-			this.notifyPropertyChange("message", value);
-		}
-	}
-
-	public onTap() {
-		SwissArmyKnife.actionBarSetTitle("New Title");
-		this._counter--;
-		this.updateMessage();
+	public onActionTitleChange() {
+		const randomString = this._strings[
+			Math.floor(Math.random() * this._strings.length)
+		];
+		SwissArmyKnife.actionBarSetTitle(randomString);
 	}
 
 	public removeScrollVerticalBars(args) {
@@ -37,12 +25,45 @@ export class HelloWorldModel extends Observable {
 		SwissArmyKnife.removeVerticalScrollBars(scrollV);
 	}
 
-	private updateMessage() {
-		if (this._counter <= 0) {
-			this.message =
-				"Hoorraaay! You unlocked the NativeScript clicker achievement!";
-		} else {
-			this.message = `${this._counter} taps left`;
+	public onChangeStatusBar() {
+		if (isAndroid) {
+			// resetting translucent flag so this is clear it works to user
+			SwissArmyKnife.resetAndroidStatusBarTranslucentFlag();
+			const randomColor = this._colors[
+				Math.floor(Math.random() * this._colors.length)
+			];
+			SwissArmyKnife.setAndroidStatusBarColor(randomColor);
+		} else if (isIOS) {
+			const randomStyle = this._numbers[
+				Math.floor(Math.random() * this._numbers.length)
+			];
+			SwissArmyKnife.actionBarSetStatusBarStyle(randomStyle);
 		}
+	}
+
+	public onGetScreenHeight() {
+		const result = SwissArmyKnife.getScreenHeight();
+		console.log("screen height result", result);
+		this.set("screenHeightData", JSON.stringify(result));
+	}
+
+	public onCloseKeyboard() {
+		SwissArmyKnife.dismissSoftKeyboard();
+	}
+
+	public makeAndroidStatusTranslucent() {
+		SwissArmyKnife.setAndroidStatusBarTranslucentFlag();
+	}
+
+	public resetAndroidStatBar() {
+		SwissArmyKnife.resetAndroidStatusBarTranslucentFlag();
+	}
+
+	public makeNavTranslucent() {
+		SwissArmyKnife.setAndroidNavBarTranslucentFlag();
+	}
+
+	public resetAndroidNavBar() {
+		SwissArmyKnife.resetAndroidNavBarTranslucentFlag();
 	}
 }

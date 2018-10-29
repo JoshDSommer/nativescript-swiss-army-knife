@@ -7,5 +7,5 @@ demo/*.d.ts
 demo/platforms
 demo/node_modules
 node_modules
-*.d.ts
+!src/*.d.ts
 *.DS_Store

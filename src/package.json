@@ -1,6 +1,6 @@
 {
 	"name": "nativescript-swiss-army-knife",
-	"version": "3.1.0",
+	"version": "3.1.1",
 	"description": "Nativescript Swiss Army Knife",
 	"main": "nativescript-swiss-army-knife",
 	"typings": "nativescript-swiss-army-knife.d.ts",
@@ -17,7 +17,6 @@
 		"demo.android": "npm run preparedemo && cd ../demo && tns run android",
 		"preparedemo": "npm run build && cd ../demo && tns plugin remove nativescript-swiss-army-knife && tns plugin add ../src && tns install",
 		"setup": "npm install && cd ../demo && npm install && cd ../src && npm run build && cd ../demo && tns plugin add ../src && cd ../src",
-
 		"ios": "xcproj --project platforms/ios/YourApp.xcodeproj touch; xcproj --project platforms/ios/Pods/Pods.xcodeproj touch; tns livesync ios --emulator --watch",
 		"precommit": "lint-staged"
 	},

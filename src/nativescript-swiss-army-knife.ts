@@ -28,6 +28,19 @@ export class SwissArmyKnife {
 	}
 
 	/**
+	 * reutnrs the vertical offset of the listView on Android and iOS
+	 */
+	static listViewVerticalOffset(view: ListView): number {
+		// no ui bounce. causes problems
+		if (isIOS && view.ios) {
+			return view.ios.contentOffset.y;
+		} else if (isAndroid && view.android) {
+			return view.android.computeVerticalScrollOffset();
+		}
+		return null;
+	}
+
+	/**
 	 * Disables bounce/overscroll for scrollViews or ListViews on Android and iOS
 	 */
 	static disableScrollBounce(view: ScrollView | ListView): void {

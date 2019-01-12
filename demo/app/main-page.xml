@@ -1,33 +1,54 @@
-
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="page">
     <Page.actionBar>
         <ActionBar title="My App" icon="" class="action-bar"></ActionBar>
     </Page.actionBar>
-    <StackLayout rows="auto, *" class="p-20">
-        <StackLayout height="200">
-            <ScrollView id="scrollV">
-                <Label class="h2" text="Im in a scroll view and the text is really long to show scrolling. We will remove scrollbars on function calls. Im in a scroll view and the text is really long to show scrolling. We will remove scrollbars on function calls. Im in a scroll view and the text is really long to show scrolling. We will remove scrollbars on function calls. Im in a scroll view and the text is really long to show scrolling. We will remove scrollbars on function calls. Im in a scroll view and the text is really long to show scrolling. We will remove scrollbars on function calls. Im in a scroll view and the text is really long to show scrolling. We will remove scrollbars on function calls. Im in a scroll view and the text is really long to show scrolling. We will remove scrollbars on function calls." textWrap="true" />
-            </ScrollView>
-        </StackLayout>
 
-        <Button text="Remove Vertical Scroll Bars" tap="{{ removeScrollVerticalBars }}" />
-        <Label text="" class="hr-light" textWrap="true" />
+    <TabView id="tabViewContainer">
+        <TabView.items>
+            <TabViewItem title="Demo Page 1">
+                <TabViewItem.view>
+                    <StackLayout rows="auto, *" class="p-20">
+                        <StackLayout height="200">
+                            <ScrollView id="scrollV">
+                                <Label class="h2" text="Im in a scroll view and the text is really long to show scrolling. We will remove scrollbars on function calls. Im in a scroll view and the text is really long to show scrolling. We will remove scrollbars on function calls. Im in a scroll view and the text is really long to show scrolling. We will remove scrollbars on function calls. Im in a scroll view and the text is really long to show scrolling. We will remove scrollbars on function calls. Im in a scroll view and the text is really long to show scrolling. We will remove scrollbars on function calls. Im in a scroll view and the text is really long to show scrolling. We will remove scrollbars on function calls. Im in a scroll view and the text is really long to show scrolling. We will remove scrollbars on function calls." textWrap="true" />
+                            </ScrollView>
+                        </StackLayout>
 
-        <ScrollView height="100%" paddingBottom="200">
-            <StackLayout marginBottom="40">
-                <Button text="Change ActionBar Title" tap="{{ onActionTitleChange }}" class="btn btn-primary" />
-                <Button text="Change Status Bar" tap="{{ onChangeStatusBar }}" class="btn btn-primary" />
-                <Label text="{{ screenHeightData }}" class="h2 text-center" textWrap="true"/>
-                <Button text="Get Screen Height" tap="{{ onGetScreenHeight }}" class="btn btn-primary" />
-                <android>
-                    <Button text="StatusBar Translucent" tap="{{ makeAndroidStatusTranslucent }}" class="btn btn-primary" />
-                    <Button text="Reset Status Bar" tap="{{ resetAndroidStatBar }}" class="btn btn-primary" />
-                    <Button text="Navbar Translucent" tap="{{ makeNavTranslucent }}" class="btn btn-primary" />
-                    <Button text="Reset Nav Bar" tap="{{ resetAndroidNavBar }}" class="btn btn-primary" />
-                </android>
-            </StackLayout>
+                        <Button text="Remove Vertical Scroll Bars" tap="{{ removeScrollVerticalBars }}" />
+                        <Label text="" class="hr-light" textWrap="true" />
 
-        </ScrollView>
+                        <ScrollView height="100%" paddingBottom="200">
+                            <StackLayout marginBottom="40">
+                                <Button text="Change ActionBar Title" tap="{{ onActionTitleChange }}" class="btn btn-primary" />
+                                <Button text="Change Status Bar" tap="{{ onChangeStatusBar }}" class="btn btn-primary" />
+                                <Label text="{{ screenHeightData }}" class="h2 text-center" textWrap="true"/>
+                                <Button text="Get Screen Height" tap="{{ onGetScreenHeight }}" class="btn btn-primary" />
+                                <android>
+                                    <Button text="StatusBar Translucent" tap="{{ makeAndroidStatusTranslucent }}" class="btn btn-primary" />
+                                    <Button text="Reset Status Bar" tap="{{ resetAndroidStatBar }}" class="btn btn-primary" />
+                                    <Button text="Navbar Translucent" tap="{{ makeNavTranslucent }}" class="btn btn-primary" />
+                                    <Button text="Reset Nav Bar" tap="{{ resetAndroidNavBar }}" class="btn btn-primary" />
+                                </android>
+                            </StackLayout>
 
-    </StackLayout>
+                        </ScrollView>
+
+                    </StackLayout>
+                </TabViewItem.view>
+            </TabViewItem>
+            <TabViewItem title="Demo Page 2">
+                <TabViewItem.view>
+                    <StackLayout rows="auto, *" class="p-20">
+                        <ListView items="{{ months }}" loaded="onLoaded" itemLoading="onItemLoading" itemTap="{{ onGetOffSet }}" height="50%" id="demoList">
+                            <ListView.itemTemplate>
+                                <StackLayout>
+                                    <Label text="{{ month }}" textWrap="true" />
+                                </StackLayout>
+                            </ListView.itemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </TabViewItem.view>
+            </TabViewItem>
+        </TabView.items>
+    </TabView>
 </Page>

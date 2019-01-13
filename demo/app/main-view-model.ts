@@ -83,7 +83,7 @@ export class HelloWorldModel extends Observable {
 
 	public onGetOffSet() {
 		const list = topmost().getViewById("demoList") as ListView;
-		console.log(SwissArmyKnife.listViewVerticalOffset(list));
+		console.log(SwissArmyKnife.getlistViewVerticalOffset(list));
 	}
 
 	public onGetScreenHeight() {

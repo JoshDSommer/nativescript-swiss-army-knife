@@ -1,5 +1,5 @@
 export * from "./nativescript-swiss-army-knife";
-export * from "./listViewVerticalOffset";
+export * from "./getListViewVerticalOffset";
 export * from "./disableScrollBounce";
 export * from "./removeHorizontalScrollBars";
 export * from "./removeVerticalScrollBars";

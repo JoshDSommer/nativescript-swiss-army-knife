@@ -9,24 +9,26 @@ import { View } from "tns-core-modules/ui/core/view";
 import { LayoutBase } from "tns-core-modules/ui/layouts/layout-base";
 import { ListView } from "tns-core-modules/ui/list-view";
 import { ScrollView } from "tns-core-modules/ui/scroll-view";
-import { listViewVerticalOffset } from "./listViewVerticalOffset";
-import { disableScrollBounce } from "./disableScrollBounce";
-import { removeHorizontalScrollBars } from "./removeHorizontalScrollBars";
-import { removeVerticalScrollBars } from "./removeVerticalScrollBars";
-import { pluckChildViewsFromLayout } from "./pluckChildViewsFromLayout";
-import { getScreenHeight } from "./getScreenHeight";
-import { actionBarSetTitle } from "./actionBarSetTitle";
-import { actionBarAddButton } from "./actionBarAddButton";
-import { actionBarClearButtons } from "./actionBarClearButtons";
-import { setAndroidStatusBarTranslucentFlag } from "./setAndroidStatusBarTranslucentFlag";
-import { resetAndroidStatusBarTranslucentFlag } from "./resetAndroidStatusBarTranslucentFlag";
-import { setAndroidNavBarTranslucentFlag } from "./setAndroidNavBarTranslucentFlag";
-import { resetAndroidNavBarTranslucentFlag } from "./resetAndroidNavBarTranslucentFlag";
-import { setAndroidStatusBarColor } from "./setAndroidStatusBarColor";
-import { setAndroidNavBarColor } from "./setAndroidNavBarColor";
-import { actionBarHideBackButton } from "./actionBarHideBackButton";
-import { actionBarSetStatusBarStyle } from "./actionBarSetStatusBarStyle";
-import { dismissSoftKeyboard } from "./dismissSoftKeyboard";
+import {
+	listViewVerticalOffset,
+	disableScrollBounce,
+	removeHorizontalScrollBars,
+	removeVerticalScrollBars,
+	pluckChildViewsFromLayout,
+	getScreenHeight,
+	actionBarSetTitle,
+	actionBarAddButton,
+	actionBarClearButtons,
+	setAndroidStatusBarTranslucentFlag,
+	resetAndroidStatusBarTranslucentFlag,
+	setAndroidNavBarTranslucentFlag,
+	resetAndroidNavBarTranslucentFlag,
+	setAndroidStatusBarColor,
+	setAndroidNavBarColor,
+	actionBarHideBackButton,
+	actionBarSetStatusBarStyle,
+	dismissSoftKeyboard
+} from "./index";
 
 export interface IScreenHeight {
 	portrait: number;

@@ -10,7 +10,7 @@ import { LayoutBase } from "tns-core-modules/ui/layouts/layout-base";
 import { ListView } from "tns-core-modules/ui/list-view";
 import { ScrollView } from "tns-core-modules/ui/scroll-view";
 import {
-	listViewVerticalOffset,
+	getListViewVerticalOffset,
 	disableScrollBounce,
 	removeHorizontalScrollBars,
 	removeVerticalScrollBars,
@@ -49,8 +49,8 @@ export class SwissArmyKnife {
 	/**
 	 * retunrs the vertical offset of the listView on Android and iOS
 	 */
-	static listViewVerticalOffset(view: ListView): number {
-		return listViewVerticalOffset(view);
+	static getListViewVerticalOffset(view: ListView): number {
+		return getListViewVerticalOffset(view);
 	}
 
 	/**

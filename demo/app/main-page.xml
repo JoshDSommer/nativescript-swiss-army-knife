@@ -38,7 +38,7 @@
             </TabViewItem>
             <TabViewItem title="Demo Page 2">
                 <TabViewItem.view>
-                    <StackLayout rows="auto, *" class="p-20">
+                    <StackLayout class="p-20">
                         <ListView items="{{ months }}" loaded="onLoaded" itemLoading="onItemLoading" itemTap="{{ onGetOffSet }}" height="50%" id="demoList">
                             <ListView.itemTemplate>
                                 <StackLayout>
@@ -46,6 +46,9 @@
                                 </StackLayout>
                             </ListView.itemTemplate>
                         </ListView>
+                        <StackLayout class="p-20">
+                            <Label text="{{ 'Scroll Position: ' + verticalOffset }}" textWrap="true" />
+                        </StackLayout>
                     </StackLayout>
                 </TabViewItem.view>
             </TabViewItem>

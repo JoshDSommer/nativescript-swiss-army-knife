@@ -2,8 +2,8 @@
 	"name": "nativescript-swiss-army-knife",
 	"version": "3.1.1",
 	"description": "Nativescript Swiss Army Knife",
-	"main": "nativescript-swiss-army-knife",
-	"typings": "nativescript-swiss-army-knife.d.ts",
+	"main": "index",
+	"typings": "index.d.ts",
 	"nativescript": {
 		"platforms": {
 			"android": "3.0.0",

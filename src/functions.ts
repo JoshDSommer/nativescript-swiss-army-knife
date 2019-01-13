@@ -5,7 +5,7 @@ import * as app from "tns-core-modules/application";
 import { Color } from "tns-core-modules/color";
 import { isAndroid } from "tns-core-modules/platform";
 
-function _getStatusBarHeight(): number {
+export function _getStatusBarHeight(): number {
 	if (isAndroid) {
 		let result = 0;
 		const resourceId = this._androidContext
@@ -25,7 +25,7 @@ function _getStatusBarHeight(): number {
 	}
 }
 
-function _getBarColor(color: string | Color): Color {
+export function _getBarColor(color: string | Color): Color {
 	let barColor: Color;
 
 	if (color instanceof Color === false) {
@@ -36,7 +36,7 @@ function _getBarColor(color: string | Color): Color {
 	return barColor;
 }
 
-function _getNavBarHeight(): number {
+export function _getNavBarHeight(): number {
 	if (isAndroid) {
 		let result = 0;
 		const resourceId = this._androidContext
@@ -56,10 +56,10 @@ function _getNavBarHeight(): number {
 	}
 }
 
-function _androidContext() {
+export function _androidContext() {
 	return app.android.context || app.android.currentContext;
 }
 
-function _androidActivity() {
+export function _androidActivity() {
 	return app.android.foregroundActivity || app.android.startActivity;
 }

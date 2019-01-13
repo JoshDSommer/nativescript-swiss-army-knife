@@ -3,11 +3,51 @@ import { Observable } from "tns-core-modules/data/observable";
 import { isAndroid, isIOS } from "tns-core-modules/platform";
 import { topmost } from "tns-core-modules/ui/frame";
 import { ScrollView } from "tns-core-modules/ui/scroll-view";
+import { ListView } from "tns-core-modules/ui/list-view/list-view";
 
 export class HelloWorldModel extends Observable {
 	private _colors = ["red", "blue", "green", "yellow", "orange"];
 	private _numbers = [0, 1];
 	private _strings = ["Wow 😏", "Boom 💥", "Spooky 👻", "🧟‍♂️ Dead"];
+
+	months = [
+		{ month: "January" },
+		{ month: "February" },
+		{ month: "March" },
+		{ month: "April" },
+		{ month: "May" },
+		{ month: "June" },
+		{ month: "July" },
+		{ month: "August" },
+		{ month: "September" },
+		{ month: "October" },
+		{ month: "November" },
+		{ month: "December" },
+		{ month: "January" },
+		{ month: "February" },
+		{ month: "March" },
+		{ month: "April" },
+		{ month: "May" },
+		{ month: "June" },
+		{ month: "July" },
+		{ month: "August" },
+		{ month: "September" },
+		{ month: "October" },
+		{ month: "November" },
+		{ month: "December" },
+		{ month: "January" },
+		{ month: "February" },
+		{ month: "March" },
+		{ month: "April" },
+		{ month: "May" },
+		{ month: "June" },
+		{ month: "July" },
+		{ month: "August" },
+		{ month: "September" },
+		{ month: "October" },
+		{ month: "November" },
+		{ month: "December" }
+	];
 
 	constructor() {
 		super();
@@ -39,6 +79,11 @@ export class HelloWorldModel extends Observable {
 			];
 			SwissArmyKnife.actionBarSetStatusBarStyle(randomStyle);
 		}
+	}
+
+	public onGetOffSet() {
+		const list = topmost().getViewById("demoList") as ListView;
+		console.log(SwissArmyKnife.listViewVerticalOffset(list));
 	}
 
 	public onGetScreenHeight() {

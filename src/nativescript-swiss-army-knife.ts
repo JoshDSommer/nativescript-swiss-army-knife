@@ -3,13 +3,30 @@
 
 import * as app from "tns-core-modules/application";
 import { Color } from "tns-core-modules/color";
-import { device, isAndroid, isIOS, screen } from "tns-core-modules/platform";
+import { isAndroid } from "tns-core-modules/platform";
 import { ActionItem } from "tns-core-modules/ui/action-bar";
 import { View } from "tns-core-modules/ui/core/view";
-import { topmost } from "tns-core-modules/ui/frame";
 import { LayoutBase } from "tns-core-modules/ui/layouts/layout-base";
 import { ListView } from "tns-core-modules/ui/list-view";
 import { ScrollView } from "tns-core-modules/ui/scroll-view";
+import { listViewVerticalOffset } from "./listViewVerticalOffset";
+import { disableScrollBounce } from "./disableScrollBounce";
+import { removeHorizontalScrollBars } from "./removeHorizontalScrollBars";
+import { removeVerticalScrollBars } from "./removeVerticalScrollBars";
+import { pluckChildViewsFromLayout } from "./pluckChildViewsFromLayout";
+import { getScreenHeight } from "./getScreenHeight";
+import { actionBarSetTitle } from "./actionBarSetTitle";
+import { actionBarAddButton } from "./actionBarAddButton";
+import { actionBarClearButtons } from "./actionBarClearButtons";
+import { setAndroidStatusBarTranslucentFlag } from "./setAndroidStatusBarTranslucentFlag";
+import { resetAndroidStatusBarTranslucentFlag } from "./resetAndroidStatusBarTranslucentFlag";
+import { setAndroidNavBarTranslucentFlag } from "./setAndroidNavBarTranslucentFlag";
+import { resetAndroidNavBarTranslucentFlag } from "./resetAndroidNavBarTranslucentFlag";
+import { setAndroidStatusBarColor } from "./setAndroidStatusBarColor";
+import { setAndroidNavBarColor } from "./setAndroidNavBarColor";
+import { actionBarHideBackButton } from "./actionBarHideBackButton";
+import { actionBarSetStatusBarStyle } from "./actionBarSetStatusBarStyle";
+import { dismissSoftKeyboard } from "./dismissSoftKeyboard";
 
 export interface IScreenHeight {
 	portrait: number;
@@ -31,74 +48,42 @@ export class SwissArmyKnife {
 	 * retunrs the vertical offset of the listView on Android and iOS
 	 */
 	static listViewVerticalOffset(view: ListView): number {
-		if (isIOS && view.ios) {
-			return view.ios.contentOffset.y;
-		} else if (isAndroid && view.android) {
-			return view.android.computeVerticalScrollOffset();
-		}
-		return null;
+		return listViewVerticalOffset(view);
 	}
 
 	/**
 	 * Disables bounce/overscroll for scrollViews or ListViews on Android and iOS
 	 */
 	static disableScrollBounce(view: ScrollView | ListView): void {
-		// no ui bounce. causes problems
-		if (isIOS) {
-			view.ios.bounces = false;
-		} else if (isAndroid && view.android != null) {
-			view.android.setOverScrollMode(2);
-		}
+		disableScrollBounce(view);
 	}
 
 	/**
 	 * Hides horizontal scrollbars for scrollViews or ListViews on Android and iOS
 	 */
 	static removeHorizontalScrollBars(view: ScrollView | ListView): void {
-		if (isIOS) {
-			view.ios.showsHorizontalScrollIndicator = false;
-		} else {
-			view.android.setHorizontalScrollBarEnabled(false);
-		}
+		removeHorizontalScrollBars(view);
 	}
 
 	/**
 	 * Hides vertical scrollbars for scrollViews or ListViews on Android and iOS
 	 */
 	static removeVerticalScrollBars(view: ScrollView | ListView): void {
-		if (isIOS) {
-			view.ios.showsVerticalScrollIndicator = false;
-		} else {
-			view.android.setVerticalScrollBarEnabled(false);
-		}
+		removeVerticalScrollBars(view);
 	}
 
 	/**
 	 * Takes a layout and removes all the child Views and returns them in an Array<View>
 	 */
 	static pluckChildViewsFromLayout(parent: LayoutBase): Array<View> {
-		const returnViews: View[] = [];
-		parent.eachLayoutChild((child: View) => {
-			returnViews.push(child);
-		});
-		parent.removeChildren();
-		return returnViews;
+		return pluckChildViewsFromLayout(parent);
 	}
 
 	/**
 	 * returns an IScreenHeight ojecjt with the protrait demension, landscape deminsions, and android status bar height
 	 */
 	static getScreenHeight(): IScreenHeight {
-		const height1 = screen.mainScreen.heightDIPs;
-		const height2 = screen.mainScreen.widthDIPs;
-		const statusbar = this._getStatusBarHeight();
-		const navbar = this._getNavBarHeight();
-		return {
-			portrait: height1,
-			landscape: height2,
-			androidStatusBar: statusbar,
-			androidNavBar: navbar
-		};
+		return getScreenHeight();
 	}
 
 	/** ActionBar Utilities */
@@ -106,8 +91,7 @@ export class SwissArmyKnife {
 	 * Programmatically set title
 	 */
 	static actionBarSetTitle(title: string) {
-		const actionBar = topmost().currentPage.actionBar;
-		actionBar.title = title;
+		actionBarSetTitle(title);
 	}
 
 	/**
@@ -115,42 +99,28 @@ export class SwissArmyKnife {
 	 * NOTE: This MUST be called BEFORE actionBarSetTitle on start
 	 */
 	static actionBarAddButton(button: ActionItem) {
-		topmost().currentPage.actionBar.actionItems.addItem(button);
+		actionBarAddButton(button);
 	}
 
 	/**
 	 * Programmatically remove all buttons from the ActionBar
 	 */
 	static actionBarClearButtons() {
-		const actionBar = topmost().currentPage.actionBar;
-		const actionItems = actionBar.actionItems.getItems();
-		actionItems.forEach(item => {
-			actionBar.actionItems.removeItem(item);
-		});
+		actionBarClearButtons();
 	}
 	/**
 	 * Sets the Android statusbar to translucent
 	 * Android API >= 19 only
 	 */
 	static setAndroidStatusBarTranslucentFlag(): void {
-		if (isAndroid && device.sdkVersion >= "19") {
-			const LayoutParams = <any>android.view.WindowManager.LayoutParams;
-			const window = this._androidActivity.getWindow();
-			// check for status bar
-			window.addFlags(LayoutParams.FLAG_TRANSLUCENT_STATUS);
-		}
+		setAndroidStatusBarTranslucentFlag();
 	}
 
 	/**
 	 * Clears the Android Translucent StatusBar flag
 	 */
 	static resetAndroidStatusBarTranslucentFlag(): void {
-		if (isAndroid && device.sdkVersion >= "19") {
-			const window = this._androidActivity.getWindow();
-			const LayoutParams = <any>android.view.WindowManager.LayoutParams;
-
-			window.clearFlags(LayoutParams.FLAG_TRANSLUCENT_STATUS);
-		}
+		resetAndroidStatusBarTranslucentFlag();
 	}
 
 	/**
@@ -158,22 +128,14 @@ export class SwissArmyKnife {
 	 * Android API >= 19 only
 	 */
 	static setAndroidNavBarTranslucentFlag(): void {
-		if (isAndroid && device.sdkVersion >= "19") {
-			const window = this._androidActivity.getWindow();
-			const LayoutParams = <any>android.view.WindowManager.LayoutParams;
-			window.addFlags(LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-		}
+		setAndroidNavBarTranslucentFlag();
 	}
 
 	/**
 	 * Clears the Android Translucent NavigationBar flag
 	 */
 	static resetAndroidNavBarTranslucentFlag(): void {
-		if (isAndroid && device.sdkVersion >= "19") {
-			const window = this._androidActivity.getWindow();
-			const LayoutParams = <any>android.view.WindowManager.LayoutParams;
-			window.clearFlags(LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-		}
+		resetAndroidNavBarTranslucentFlag();
 	}
 
 	/**
@@ -181,19 +143,7 @@ export class SwissArmyKnife {
 	 * Android API >= 21 only
 	 */
 	static setAndroidStatusBarColor(color: string | Color): void {
-		if (isAndroid && device.sdkVersion >= "21") {
-			const barColor = this._getBarColor(color);
-			const LayoutParams = <any>android.view.WindowManager.LayoutParams;
-			let window: any;
-			if (this._androidActivity != null) {
-				window = this._androidActivity.getWindow();
-			} else {
-				window = this._androidActivity.getWindow();
-			}
-
-			window.addFlags(LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-			window.setStatusBarColor(barColor.android);
-		}
+		setAndroidStatusBarColor(color);
 	}
 
 	/**
@@ -201,19 +151,7 @@ export class SwissArmyKnife {
 	 * Android API >= 21 only
 	 */
 	static setAndroidNavBarColor(color: string | Color): void {
-		if (isAndroid && device.sdkVersion >= "21") {
-			const barColor = this._getBarColor(color);
-			const LayoutParams = <any>android.view.WindowManager.LayoutParams;
-			let window: any;
-			if (this._androidActivity != null) {
-				window = this._androidActivity.getWindow();
-			} else {
-				window = this._androidActivity.getWindow();
-			}
-
-			window.addFlags(LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-			window.setNavigationBarColor(barColor.android);
-		}
+		setAndroidNavBarColor(color);
 	}
 
 	/** ActionBar Utilities */
@@ -221,49 +159,18 @@ export class SwissArmyKnife {
 	 * Programmatically hide the back button from the ActionBar
 	 */
 	static actionBarHideBackButton() {
-		if (topmost().ios) {
-			topmost().ios.controller.visibleViewController.navigationItem.setHidesBackButtonAnimated(
-				true,
-				false
-			);
-		}
+		actionBarHideBackButton();
 	}
 
 	/**
 	 * Programmatically remove all buttons from the ActionBar
 	 */
 	static actionBarSetStatusBarStyle(style: number) {
-		if (topmost().ios) {
-			const navigationBar = topmost().ios.controller.navigationBar;
-			// 0: default
-			// 1: light
-			navigationBar.barStyle = style;
-		}
+		actionBarSetStatusBarStyle(style);
 	}
 
 	static dismissSoftKeyboard() {
-		if (isAndroid) {
-			const inputManager = this._androidContext.getSystemService(
-				android.content.Context.INPUT_METHOD_SERVICE
-			);
-			const currentFocus = this._androidActivity.getCurrentFocus() as android.view.View;
-			if (currentFocus) {
-				const windowToken = currentFocus.getWindowToken();
-				if (windowToken) {
-					inputManager.hideSoftInputFromWindow(
-						windowToken,
-						android.view.inputmethod.InputMethodManager.HIDE_NOT_ALWAYS
-					);
-				}
-			}
-		} else if (isIOS) {
-			UIApplication.sharedApplication.sendActionToFromForEvent(
-				"resignFirstResponder",
-				null,
-				null,
-				null
-			);
-		}
+		dismissSoftKeyboard();
 	}
 
 	private static _getStatusBarHeight(): number {

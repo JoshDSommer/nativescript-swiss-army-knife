@@ -8,16 +8,18 @@ import { isAndroid } from "tns-core-modules/platform";
 export function _getStatusBarHeight(): number {
 	if (isAndroid) {
 		let result = 0;
-		const resourceId = this._androidContext
+		const resourceId = _androidContext()
 			.getResources()
 			.getIdentifier("status_bar_height", "dimen", "android");
 		if (resourceId > 0) {
-			result = this._androidContext
+			result = _androidContext()
 				.getResources()
 				.getDimensionPixelSize(resourceId);
 			result =
 				result /
-				this._androidContext.getResources().getDisplayMetrics().density;
+				_androidContext()
+					.getResources()
+					.getDisplayMetrics().density;
 		}
 		return result;
 	} else {
@@ -39,16 +41,18 @@ export function _getBarColor(color: string | Color): Color {
 export function _getNavBarHeight(): number {
 	if (isAndroid) {
 		let result = 0;
-		const resourceId = this._androidContext
+		const resourceId = _androidContext()
 			.getResources()
 			.getIdentifier("navigation_bar_height", "dimen", "android");
 		if (resourceId > 0) {
-			result = this._androidContext
+			result = _androidContext()
 				.getResources()
 				.getDimensionPixelSize(resourceId);
 			result =
 				result /
-				this._androidContext.getResources().getDisplayMetrics().density;
+				_androidContext()
+					.getResources()
+					.getDisplayMetrics().density;
 		}
 		return result;
 	} else {

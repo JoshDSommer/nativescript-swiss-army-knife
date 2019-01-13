@@ -1,10 +1,11 @@
 import { isAndroid, isIOS } from "tns-core-modules/platform";
+import { _androidActivity, _androidContext } from "./functions";
 export function dismissSoftKeyboard() {
 	if (isAndroid) {
-		const inputManager = this._androidContext.getSystemService(
+		const inputManager = _androidContext().getSystemService(
 			android.content.Context.INPUT_METHOD_SERVICE
 		);
-		const currentFocus = this._androidActivity.getCurrentFocus() as android.view.View;
+		const currentFocus = _androidActivity().getCurrentFocus() as android.view.View;
 		if (currentFocus) {
 			const windowToken = currentFocus.getWindowToken();
 			if (windowToken) {

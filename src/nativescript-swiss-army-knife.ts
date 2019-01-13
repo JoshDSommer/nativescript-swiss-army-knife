@@ -28,10 +28,9 @@ export class SwissArmyKnife {
 	}
 
 	/**
-	 * reutnrs the vertical offset of the listView on Android and iOS
+	 * retunrs the vertical offset of the listView on Android and iOS
 	 */
 	static listViewVerticalOffset(view: ListView): number {
-		// no ui bounce. causes problems
 		if (isIOS && view.ios) {
 			return view.ios.contentOffset.y;
 		} else if (isAndroid && view.android) {

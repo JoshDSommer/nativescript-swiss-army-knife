@@ -66,7 +66,7 @@ If you add a new function make sure to add it to `nativescript-swiss-army-knife.
 
 ## Contributing guidelines
 
-[Contributing guidelines](https://github.com/TheOriginalJosh/nativescript-swiss-army-knife/blob/master/CONTRIBUTING.md)
+[Contributing guidelines](https://github.com/JoshDSommer/nativescript-swiss-army-knife/blob/master/CONTRIBUTING.md)
 
 [MIT](/LICENSE)
 

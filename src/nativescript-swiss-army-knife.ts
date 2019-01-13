@@ -47,7 +47,7 @@ export class SwissArmyKnife {
 	}
 
 	/**
-	 * retunrs the vertical offset of the listView on Android and iOS
+	 * Returns the scroll position/vertical offset relative to the visibile contenten of the listView on Android and iOS
 	 */
 	static getListViewVerticalOffset(view: ListView): number {
 		return getListViewVerticalOffset(view);

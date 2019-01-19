@@ -2,8 +2,8 @@
 	"name": "nativescript-swiss-army-knife",
 	"version": "3.1.1",
 	"description": "Nativescript Swiss Army Knife",
-	"main": "nativescript-swiss-army-knife",
-	"typings": "nativescript-swiss-army-knife.d.ts",
+	"main": "index",
+	"typings": "index.d.ts",
 	"nativescript": {
 		"platforms": {
 			"android": "3.0.0",
@@ -28,7 +28,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/TheOriginalJosh/nativescript-swiss-army-knife.git"
+		"url": "https://github.com/JoshDSommer/nativescript-swiss-army-knife.git"
 	},
 	"keywords": [
 		"NativeScript",
@@ -58,13 +58,13 @@
 		}
 	],
 	"bugs": {
-		"url": "https://github.com/TheOriginalJosh/nativescript-swiss-army-knife/issues"
+		"url": "https://github.com/JoshDSommer/nativescript-swiss-army-knife/issues"
 	},
 	"license": {
 		"type": "MIT",
-		"url": "https://github.com/TheOriginalJosh/nativescript-swiss-army-knife/blob/master/LICENSE"
+		"url": "https://github.com/JoshDSommer/nativescript-swiss-army-knife/blob/master/LICENSE"
 	},
-	"homepage": "https://github.com/TheOriginalJosh/nativescript-swiss-army-knife",
+	"homepage": "https://github.com/JoshDSommer/nativescript-swiss-army-knife",
 	"readmeFilename": "README.md",
 	"devDependencies": {
 		"husky": "^1.1.2",

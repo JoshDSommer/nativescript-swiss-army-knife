@@ -7,6 +7,8 @@ A repo for all those functions you copy and paste between projects.
 
 # Common Functions
 
+**`getListViewVerticalOffset`** Returns the scroll position/vertical offset relative to the visibile contenten of the listView on Android and iOS
+
 **`disableScrollBounce`** Disables bounce/overscroll for a ScrollView or ListView on Android and iOS.
 
 **`removeHorizontalScrollBars`** Hides horizontal scrollbars for scrollViews or ListViews on Android and iOS
@@ -64,7 +66,7 @@ If you add a new function make sure to add it to `nativescript-swiss-army-knife.
 
 ## Contributing guidelines
 
-[Contributing guidelines](https://github.com/TheOriginalJosh/nativescript-swiss-army-knife/blob/master/CONTRIBUTING.md)
+[Contributing guidelines](https://github.com/JoshDSommer/nativescript-swiss-army-knife/blob/master/CONTRIBUTING.md)
 
 [MIT](/LICENSE)
 

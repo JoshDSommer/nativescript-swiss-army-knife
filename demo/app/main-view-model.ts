@@ -1,4 +1,7 @@
-import { SwissArmyKnife } from "nativescript-swiss-army-knife";
+import {
+	SwissArmyKnife,
+	getListViewVerticalOffset
+} from "nativescript-swiss-army-knife";
 import { Observable } from "tns-core-modules/data/observable";
 import { isAndroid, isIOS } from "tns-core-modules/platform";
 import { topmost } from "tns-core-modules/ui/frame";
@@ -51,6 +54,7 @@ export class HelloWorldModel extends Observable {
 
 	constructor() {
 		super();
+		this.set("verticalOffset", 0);
 	}
 
 	public onActionTitleChange() {
@@ -83,7 +87,8 @@ export class HelloWorldModel extends Observable {
 
 	public onGetOffSet() {
 		const list = topmost().getViewById("demoList") as ListView;
-		console.log(SwissArmyKnife.listViewVerticalOffset(list));
+		const verticalOffset = getListViewVerticalOffset(list);
+		this.set("verticalOffset", verticalOffset);
 	}
 
 	public onGetScreenHeight() {

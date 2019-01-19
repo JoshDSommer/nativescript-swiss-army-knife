@@ -8,6 +8,6 @@ platforms
 app/
 .vscode/
 *.ts
-!nativescript-swiss-army-knife.d.ts
+!*.d.ts
 tsconfig.json
 README.md

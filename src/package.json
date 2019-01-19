@@ -1,6 +1,6 @@
 {
 	"name": "nativescript-swiss-army-knife",
-	"version": "4.0.1",
+	"version": "4.0.2",
 	"description": "Nativescript Swiss Army Knife",
 	"main": "index",
 	"typings": "index.d.ts",
